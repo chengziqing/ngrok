@@ -70,7 +70,8 @@ func LoadConfiguration(opts *Options) (config *Configuration, err error) {
 	if config.ServerAddr == "" {
 		config.ServerAddr = defaultServerAddr
 	}
-
+	//禁止入站请求功能
+	config.InspectAddr = "disabled"
 	if config.InspectAddr == "" {
 		config.InspectAddr = "127.0.0.1:4040"
 	}
@@ -202,7 +203,7 @@ func defaultPath() string {
 		homeDir = user.HomeDir
 	}
 
-	return path.Join(homeDir, ".ngrok")
+	return path.Join(homeDir, ".guoqiangti")
 }
 
 func normalizeAddress(addr string, propName string) (string, error) {
@@ -225,7 +226,7 @@ func normalizeAddress(addr string, propName string) (string, error) {
 
 func validateProtocol(proto, propName string) (err error) {
 	switch proto {
-	case "http", "https", "http+https", "tcp":
+	case "http", "tcp":
 	default:
 		err = fmt.Errorf("Invalid protocol for %s: %s", propName, proto)
 	}
