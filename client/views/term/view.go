@@ -107,7 +107,8 @@ func (v *TermView) draw() {
 		v.Printf(0, i, "%-30s%s -> %s", "Forwarding", t.PublicUrl, t.LocalAddr)
 		i++
 	}
-	v.Printf(0, i+0, "%-30s%s", "Web Interface", v.ctl.GetWebInspectAddr())
+	//去除Web Interface显示
+	//v.Printf(0, i+0, "%-30s%s", "Web Interface", v.ctl.GetWebInspectAddr())
 
 	connMeter, connTimer := state.GetConnectionMetrics()
 	v.Printf(0, i+1, "%-30s%d", "# Conn", connMeter.Count())
