@@ -20,7 +20,7 @@ import (
 )
 
 const (
-	defaultServerAddr   = "server.guoqiangti.com:443"
+	defaultServerAddr   = "guoqiangti.com:443"
 	pingInterval        = 20 * time.Second
 	maxPongLatency      = 15 * time.Second
 	updateCheckInterval = 6 * time.Hour
