@@ -66,7 +66,6 @@ func LoadConfiguration(opts *Options) (config *Configuration, err error) {
 	} else if matched {
 		config = &Configuration{AuthToken: content}
 	}
-
 	// set configuration defaults
 	if config.ServerAddr == "" {
 		config.ServerAddr = defaultServerAddr
