@@ -13,22 +13,22 @@ Options:
 
 const usage2 string = `
 Examples:
-	ngrok 80
-	ngrok -subdomain=example 8080
-	ngrok -proto=tcp 22
-	ngrok -hostname="example.com" -httpauth="user:password" 10.0.0.1
+	guoqiangti 80
+	guoqiangti -subdomain=example 8080
+	guoqiangti -proto=tcp 22
+	guoqiangti -hostname="example.com" -httpauth="user:password" 10.0.0.1
 
 
-Advanced usage: ngrok [OPTIONS] <command> [command args] [...]
+Advanced usage: guoqiangti [OPTIONS] <command> [command args] [...]
 Commands:
-	ngrok start [tunnel] [...]    Start tunnels by name from config file
-	ngrok help                    Print help
-	ngrok version                 Print ngrok version
+	guoqiangti start [tunnel] [...]    Start tunnels by name from config file
+	guoqiangti help                    Print help
+	guoqiangti version                 Print guoqiangti version
 
 Examples:
-	ngrok start www api blog pubsub
-	ngrok -log=stdout -config=ngrok.yml start ssh
-	ngrok version
+	guoqiangti start www api blog pubsub
+	guoqiangti -log=stdout -config=guoqiangti.yml start ssh
+	guoqiangti version
 
 `
 
@@ -54,7 +54,7 @@ func ParseArgs() (opts *Options, err error) {
 	config := flag.String(
 		"config",
 		"",
-		"Path to ngrok configuration file. (default: $HOME/.ngrok)")
+		"Path to guoqiangti configuration file. (default: $HOME/.guoqiangti)")
 
 	logto := flag.String(
 		"log",
@@ -64,7 +64,7 @@ func ParseArgs() (opts *Options, err error) {
 	authtoken := flag.String(
 		"authtoken",
 		"",
-		"Authentication token for identifying an ngrok.com account")
+		"Authentication token for identifying an guoqiangti.com account")
 
 	httpauth := flag.String(
 		"httpauth",
@@ -74,17 +74,17 @@ func ParseArgs() (opts *Options, err error) {
 	subdomain := flag.String(
 		"subdomain",
 		"",
-		"Request a custom subdomain from the ngrok server. (HTTP only)")
+		"Request a custom subdomain from the guoqiangti server. (HTTP only)")
 
 	hostname := flag.String(
 		"hostname",
 		"",
-		"Request a custom hostname from the ngrok server. (HTTP only) (requires CNAME of your DNS)")
+		"Request a custom hostname from the guoqiangti server. (HTTP only) (requires CNAME of your DNS)")
 
 	protocol := flag.String(
 		"proto",
-		"http+https",
-		"The protocol of the traffic over the tunnel {'http', 'https', 'tcp'} (default: 'http+https')")
+		"http",
+		"The protocol of the traffic over the tunnel {'http','tcp'} (default: 'http')")
 
 	flag.Parse()
 
